@@ -1,0 +1,42 @@
+menu:
+  title: "&0Поручения Р.И.Н.О."
+  rows: 6
+  items:
+    decorations:
+      1:
+        material: GLASS
+        amount: 1
+        displayName: ''
+        lore: []
+        slotsInt:
+          - 1
+    clickable:
+      CLOSE:
+        material: STONE_BUTTON
+        amount: 1
+        displayName: ''
+        lore: [ ]
+        slot: 1
+      UPDATE_ITEMS:
+        material: LIGHT_BLUE_DYE
+        amount: 1
+        displayName: ''
+        lore:
+          - '$cost'
+        slot: 2
+      UPGRADE_LEVEL:
+        material: BELL
+        amount: 1
+        displayName: ''
+        lore:
+          - '$cost, $next_level'
+        slot: 3
+        if_max_level:
+          material: BARRIER
+          amount: 1
+          displayName: ''
+          lore:
+            - '$cost, $next_level'
+    sellerItems:
+      11: 0
+      12: 0

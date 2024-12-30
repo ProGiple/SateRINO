@@ -1,0 +1,19 @@
+staticItems:
+  error:
+    material: BARRIER
+    displayName: ''
+    lore:
+      - '$need_level'
+  successful:
+    displayName: ''
+    lore:
+      - '$count, $cost, $raiting, $need_level'
+items:
+  0:
+    NETHER_BRICKS:
+      displayName: '&bНезерские кирпичи'
+      moneyPerOne: 1.4-3.3
+      raiting:
+        per: 100
+        amo: 1
+      count: 400-1000

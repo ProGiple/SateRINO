@@ -1,0 +1,25 @@
+menu:
+  title: "Магазин за рейтинг"
+  rows: 6
+  items:
+    decorations:
+      1:
+        material: GLASS
+        amount: 1
+        displayName: ''
+        lore: []
+        slotsInt:
+          - 1
+    clickable:
+      OPEN_MAIN_MENU:
+        material: STONE_BUTTON
+        amount: 1
+        displayName: ''
+        lore: [ ]
+        slot: 1
+      LEVEL_UP:
+        material: BOOK
+        amount: 1
+        displayName: ''
+        lore: [ ]
+        slot: 2

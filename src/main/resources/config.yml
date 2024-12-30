@@ -1,0 +1,25 @@
+config:
+  updateItemsCost: 50
+  levelBuying:
+    1: 75
+    2: 200
+    3: 500
+  updateTime:
+    - 00:00
+    - 12:00
+placeholders: # %saterino_level%, %saterino_raiting%, %saterino_timeToNextUpdate%, %saterino_item_<index>_material%,
+# %saterino_item_<index>_amount%, %saterino_item_<index>_moneyPerOne%, %saterino_item_<index>_fullCost%
+  timeToNextUpdate: "HH:MM"
+messages:
+  noPerm: "У вас нет прав!"
+  noLevel: "У вас не тот уровень! Нужен минимум $need_level" # $need_level
+  noItems: "У вас не хватает предметов! Надо $need_items шт." # $need_items
+  maxLevel: "У вас и так уже максимальный уровень!"
+  noRaiting: "У вас не хватает рейтинга! Нужно еще $need_raiting шт." # $need_raiting
+  reloadPlugin: "&aПлагин перезагружен!"
+  playerUpdateItems:
+    - "$player обновил список предметов!" # $player
+  updateItems:
+    - "Предметы обновились сами по себе!"
+  playerCompleteItem:
+    - "$player выполнил задание РИНО номером $task_id ($task_item_name)" # $player, $task_id, $task_item_name, $task_item_id, $task_item_count, $task_item_cost

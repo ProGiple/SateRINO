@@ -1,0 +1,18 @@
+name: SateRINO
+version: '1.0.2'
+main: org.comp.progiple.saterino.SateRINO
+api-version: '1.16'
+softdepend:
+  - PlaceholderAPI
+commands:
+  saterino:
+    aliases:
+      - sr
+      - rino
+      - sater
+      - srino
+permissions:
+  saterino.open:
+    default: true
+  saterino.admin:
+    default: op
