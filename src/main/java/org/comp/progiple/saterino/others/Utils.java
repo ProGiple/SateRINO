@@ -1,7 +1,7 @@
 package org.comp.progiple.saterino.others;
 
 import org.bukkit.ChatColor;
-import org.comp.progiple.saterino.others.configs.SellerItemsConfig;
+import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsConfig;
 
 public class Utils {
     public static String color(String sr) {

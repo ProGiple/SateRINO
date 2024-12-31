@@ -3,9 +3,7 @@ package org.comp.progiple.saterino.inventories.staticButtons;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.inventories.Button;
-import org.comp.progiple.saterino.inventories.staticButtons.buttons.CloseButton;
-import org.comp.progiple.saterino.inventories.staticButtons.buttons.UpdateItemsButton;
-import org.comp.progiple.saterino.inventories.staticButtons.buttons.UpgradeLevelButton;
+import org.comp.progiple.saterino.inventories.staticButtons.buttons.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,8 @@ public class ButtonSetter {
                 case "CLOSE" -> button = new CloseButton(itemSection);
                 case "UPDATE_ITEMS" -> button = new UpdateItemsButton(itemSection);
                 case "UPGRADE_LEVEL" -> button = new UpgradeLevelButton(itemSection, currentLevel);
+                case "BACK", "TO_MENU" -> button = new ToMenuButton(itemSection);
+                case "NEXT", "TO_SHOP" -> button = new ToShopButton(itemSection);
             }
             if (button != null) this.buttonList.add(button);
         }

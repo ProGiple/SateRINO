@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.comp.progiple.saterino.others.Placeholders;
-import org.comp.progiple.saterino.others.configs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 import org.example.novasparkle.Events.MenuHandler;
 
@@ -21,7 +21,9 @@ public final class SateRINO extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         plugin.saveResource("items/sellerItems.yml", false);
+        plugin.saveResource("items/shopItems.yml", false);
         plugin.saveResource("menus/main.yml", false);
+        plugin.saveResource("menus/shop.yml", false);
         plugin.saveResource("itemsData.yml", false);
 
         File dir = new File(plugin.getDataFolder(), "data");
@@ -45,7 +47,6 @@ public final class SateRINO extends JavaPlugin {
         Objects.requireNonNull(getCommand("saterino")).setExecutor(command);
         Objects.requireNonNull(getCommand("saterino")).setTabCompleter(command);
 
-        this.reg(new JoinEvent());
         this.reg(new MenuHandler());
         ItemsData.updateItems(false);
         new Runnable().runTaskTimer(plugin, 0, 60 * 20L);
@@ -69,6 +70,6 @@ public final class SateRINO extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Bukkit.getScheduler().cancelTasks(plugin);
     }
 }

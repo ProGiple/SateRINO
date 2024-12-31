@@ -1,0 +1,33 @@
+noLevel_error_item:
+  material: BARRIER
+  displayName: ''
+  lore:
+    - '$need_level'
+shopItems:
+  first132132:
+    displayMaterial: PAPER
+    displayName: ""
+    displayLore:
+      - ""
+    displayAmount: 16
+    needLevel: 3
+    slot: 1
+    raitingCost: 50
+    mode:
+      type: COMMANDS # COMMANDS / ITEM
+      commands:
+        - "player_execute:ei give $player treasure 1"
+        - "console_execute:ei give $player treasure 1"
+  second_1:
+    displayMaterial: STONE
+    displayName: ""
+    displayLore:
+      - ""
+    displayAmount: 12
+    needLevel: 2
+    slot: 2
+    raitingCost: 111
+    mode:
+      type: ITEM
+      item: NETHERITE_SCRAP
+      amount: 12

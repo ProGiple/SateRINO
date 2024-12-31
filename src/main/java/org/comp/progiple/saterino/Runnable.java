@@ -2,7 +2,7 @@ package org.comp.progiple.saterino;
 
 import org.bukkit.scheduler.BukkitRunnable;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

@@ -4,12 +4,9 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 import org.example.novasparkle.Items.Item;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class UpdateItemsButton extends Item implements Button {
     public UpdateItemsButton(ConfigurationSection section) {

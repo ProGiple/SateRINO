@@ -1,10 +1,11 @@
-package org.comp.progiple.saterino.inventories.sellerItems;
+package org.comp.progiple.saterino.inventories.menus.main.sellerItems;
 
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
-import org.comp.progiple.saterino.others.configs.ItemsData;
-import org.comp.progiple.saterino.others.configs.SellerItemsConfig;
+import org.comp.progiple.saterino.inventories.ErrorItem;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsConfig;
 import org.example.novasparkle.Items.Item;
 
 import java.util.*;

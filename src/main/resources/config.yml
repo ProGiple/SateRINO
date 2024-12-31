@@ -17,6 +17,7 @@ messages:
   maxLevel: "У вас и так уже максимальный уровень!"
   noRaiting: "У вас не хватает рейтинга! Нужно еще $need_raiting шт." # $need_raiting
   reloadPlugin: "&aПлагин перезагружен!"
+  buyItem: "Вы успешно купили товар!"
   playerUpdateItems:
     - "$player обновил список предметов!" # $player
   updateItems:

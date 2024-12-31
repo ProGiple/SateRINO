@@ -1,28 +1,25 @@
-package org.comp.progiple.saterino.inventories.sellerItems;
+package org.comp.progiple.saterino.inventories.menus.main.sellerItems;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.comp.progiple.saterino.SateRINO;
 import org.comp.progiple.saterino.inventories.Button;
-import org.comp.progiple.saterino.inventories.Menu;
+import org.comp.progiple.saterino.inventories.menus.main.MainMenu;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.comp.progiple.saterino.others.configs.SellerItemsConfig;
+import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsConfig;
 import org.example.novasparkle.Items.Item;
 import org.example.novasparkle.Menus.AMenu;
-import org.example.novasparkle.Menus.IMenu;
 import org.example.novasparkle.Menus.MenuManager;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 @Getter
@@ -68,7 +65,7 @@ public class SellerItem extends Item implements Button {
             PlayerData playerData = PlayerData.getPlayerDataMap().get(player.getName());
             playerData.set("raiting", this.fullRaiting);
             MenuManager.getActiveInventories().forEach((inv, imenu) -> {
-                if (imenu instanceof Menu) {
+                if (imenu instanceof MainMenu) {
                     AMenu aMenu = (AMenu) imenu;
                     aMenu.getPlayer().closeInventory();
                 }
