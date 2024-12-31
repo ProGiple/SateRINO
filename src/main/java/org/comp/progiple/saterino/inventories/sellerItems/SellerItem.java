@@ -67,14 +67,12 @@ public class SellerItem extends Item implements Button {
 
             PlayerData playerData = PlayerData.getPlayerDataMap().get(player.getName());
             playerData.set("raiting", this.fullRaiting);
-
-            for (Map.Entry<Inventory, IMenu> entry : MenuManager.getActiveInventories().entrySet()) {
-                IMenu iMenu = entry.getValue();
-                if (iMenu instanceof Menu) {
-                    AMenu aMenu = (AMenu) iMenu;
+            MenuManager.getActiveInventories().forEach((inv, imenu) -> {
+                if (imenu instanceof Menu) {
+                    AMenu aMenu = (AMenu) imenu;
                     aMenu.getPlayer().closeInventory();
                 }
-            }
+            });
 
             byte index = 0;
             for (String key : ItemsData.getSection("").getKeys(false)) {
@@ -86,15 +84,14 @@ public class SellerItem extends Item implements Button {
             }
             if (index != 0) {
                 ItemsData.updateItem(index, this.level, new Random());
-                for (String line : Config.getMessageList("playerCompleteItem")) {
-                    line = line.replace("$player", player.getName())
-                            .replace("$task_id", String.valueOf(index))
-                            .replace("$task_item_name", this.getDisplayName())
-                            .replace("$task_item_id", this.material.name())
-                            .replace("$task_item_count", String.valueOf(this.amount))
-                            .replace("$task_item_cost", String.valueOf(this.fullCost));
-                    Bukkit.getServer().broadcastMessage(line);
-                }
+                byte finalIndex = index;
+                Config.getMessageList("playerCompleteItem").forEach(line ->
+                        Bukkit.getServer().broadcastMessage(line.replace("$player", player.getName())
+                                .replace("$task_id", String.valueOf(finalIndex))
+                                .replace("$task_item_name", this.getDisplayName())
+                                .replace("$task_item_id", this.material.name())
+                                .replace("$task_item_count", String.valueOf(this.amount))
+                                .replace("$task_item_cost", String.valueOf(this.fullCost))));
             }
         }
         else player.sendMessage(Config.getMessage("noItems")

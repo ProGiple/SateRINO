@@ -16,14 +16,13 @@ public class ButtonSetter {
     public ButtonSetter(ConfigurationSection section, byte currentLevel) {
         for (String key : section.getKeys(false)) {
             ConfigurationSection itemSection = section.getConfigurationSection(key);
+            assert itemSection != null;
+
             Button button = null;
             switch (key) {
                 case "CLOSE" -> button = new CloseButton(itemSection);
                 case "UPDATE_ITEMS" -> button = new UpdateItemsButton(itemSection);
-                case "UPGRADE_LEVEL" -> {
-                    assert itemSection != null;
-                    button = new UpgradeLevelButton(itemSection, currentLevel);
-                }
+                case "UPGRADE_LEVEL" -> button = new UpgradeLevelButton(itemSection, currentLevel);
             }
             if (button != null) this.buttonList.add(button);
         }

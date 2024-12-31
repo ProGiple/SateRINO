@@ -92,8 +92,8 @@ public class ItemsData {
     public static void updateItems(boolean showMessage) {
         ConfigurationSection section = MainMenuConfig.getSection("menu.items.sellerItems");
         Random random = new Random();
-        byte i = 1;
 
+        byte i = 1;
         for (String key : section.getKeys(false)) {
             if (ItemsData.updateItem(i, (byte) section.getInt(key), random)) i++;
         }

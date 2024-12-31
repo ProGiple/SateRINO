@@ -4,7 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 
-public class Listener implements org.bukkit.event.Listener {
+public class JoinEvent implements org.bukkit.event.Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         String nick = e.getPlayer().getName();

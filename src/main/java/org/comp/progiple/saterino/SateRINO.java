@@ -45,7 +45,7 @@ public final class SateRINO extends JavaPlugin {
         Objects.requireNonNull(getCommand("saterino")).setExecutor(command);
         Objects.requireNonNull(getCommand("saterino")).setTabCompleter(command);
 
-        this.reg(new Listener());
+        this.reg(new JoinEvent());
         this.reg(new MenuHandler());
         ItemsData.updateItems(false);
         new Runnable().runTaskTimer(plugin, 0, 60 * 20L);
