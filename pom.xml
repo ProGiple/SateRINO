@@ -6,7 +6,7 @@
 
   <groupId>org.comp.progiple</groupId>
   <artifactId>SateRINO</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>jar</packaging>
 
   <name>SateRINO</name>
@@ -89,7 +89,7 @@
       <dependency>
           <groupId>com.github.NovaSparkle</groupId>
           <artifactId>LunaSpring</artifactId>
-          <version>Version-1.6.3</version>
+          <version>1.8.4</version>
       </dependency>
       <dependency>
           <groupId>me.clip</groupId>

@@ -4,8 +4,8 @@ import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.inventories.ErrorItem;
-import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuConfig;
-import org.example.novasparkle.Items.Item;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ShopItemsManager;
+import org.novasparkle.lunaspring.Items.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import java.util.Objects;
 public class ShopItemsSetter {
     private final List<Item> shopItemList = new ArrayList<>();
     public ShopItemsSetter(byte playerLevel) {
-        ConfigurationSection errorSection = ShopMenuConfig.getSection("noLevel_error_item");
+        ConfigurationSection errorSection = ShopItemsManager.getSection("noLevel_error_item");
 
-        for (String key : ShopMenuConfig.getSection("shopItems").getKeys(false)) {
-            ConfigurationSection itemSection = ShopMenuConfig.getSection(String.format("shopItems.%s", key));
+        for (String key : ShopItemsManager.getSection("shopItems").getKeys(false)) {
+            ConfigurationSection itemSection = ShopItemsManager.getSection(String.format("shopItems.%s", key));
             byte needLevel = (byte) itemSection.getInt("needLevel");
             if (needLevel > playerLevel) {
                 String name = errorSection.getString("displayName");

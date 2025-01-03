@@ -9,11 +9,10 @@ import org.bukkit.inventory.ItemStack;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.inventories.menus.main.sellerItems.SellerItemsSetter;
 import org.comp.progiple.saterino.inventories.staticButtons.ButtonSetter;
-import org.comp.progiple.saterino.others.configs.menuConfigs.MainMenuConfig;
+import org.comp.progiple.saterino.others.configs.menuConfigs.MainMenuManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.example.novasparkle.Items.Item;
-import org.example.novasparkle.Menus.AMenu;
-import org.example.novasparkle.Menus.Decoration;
+import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.AMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +22,11 @@ public class MainMenu extends AMenu {
     private final ButtonSetter buttonSetter;
     private final SellerItemsSetter sellerItemsSetter;
     private final Player player;
-    private final Decoration decoration;
     public MainMenu(Player player, String title, int rows, ConfigurationSection decorationSection) {
-        super(player, title, (byte) (rows * 9));
+        super(player, title, (byte) (rows * 9), decorationSection);
         this.player = player;
-        this.decoration = new Decoration(decorationSection);
 
-        ConfigurationSection section = MainMenuConfig.getSection("menu.items");
+        ConfigurationSection section = MainMenuManager.getSection("menu.items");
         this.buttonSetter = new ButtonSetter(Objects.requireNonNull(section.getConfigurationSection("clickable")),
                 (byte) PlayerData.getPlayerDataMap().get(this.player.getName()).getInt("level"));
 
@@ -47,8 +44,7 @@ public class MainMenu extends AMenu {
         for (Button button : this.buttonSetter.getButtonList()) {
             this.getInventory().setItem(button.getSlot(), button.getItemStack());
         }
-        this.fillItemsList(this.sellerItemsSetter.getSellerItemList());
-        this.decoration.insert(this);
+        this.addItems(this.sellerItemsSetter.getSellerItemList());
         this.insertAllItems();
     }
 

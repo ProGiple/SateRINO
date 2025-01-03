@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.comp.progiple.saterino.others.Placeholders;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.example.novasparkle.Events.MenuHandler;
+import org.novasparkle.lunaspring.Events.MenuHandler;
 
 import java.io.File;
 import java.util.Objects;
@@ -48,7 +48,7 @@ public final class SateRINO extends JavaPlugin {
         Objects.requireNonNull(getCommand("saterino")).setTabCompleter(command);
 
         this.reg(new MenuHandler());
-        ItemsData.updateItems(false);
+        ItemsDataManager.updateItems(false);
         new Runnable().runTaskTimer(plugin, 0, 60 * 20L);
     }
 

@@ -4,20 +4,22 @@ import lombok.experimental.UtilityClass;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.comp.progiple.saterino.others.Utils;
 import org.comp.progiple.saterino.SateRINO;
+import org.novasparkle.lunaspring.Configuration.Configuration;
+import org.novasparkle.lunaspring.Configuration.IConfig;
 
 import java.util.List;
 
 @UtilityClass
 public class Config {
-    private static FileConfiguration config;
+    private final IConfig config;
     static {
         SateRINO.getPlugin().saveDefaultConfig();
-        Config.reload();
+        config = new IConfig(SateRINO.getPlugin());
     }
 
     public void reload() {
         SateRINO.getPlugin().reloadConfig();
-        config = SateRINO.getPlugin().getConfig();
+        config.reload(SateRINO.getPlugin());
     }
 
     public int getInt(String path) {

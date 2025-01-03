@@ -4,9 +4,9 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.inventories.menus.main.MainMenu;
-import org.comp.progiple.saterino.others.configs.menuConfigs.MainMenuConfig;
-import org.example.novasparkle.Items.Item;
-import org.example.novasparkle.Menus.MenuManager;
+import org.comp.progiple.saterino.others.configs.menuConfigs.MainMenuManager;
+import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.MenuManager;
 
 public class ToMenuButton extends Item implements Button {
     public ToMenuButton(ConfigurationSection section) {
@@ -15,8 +15,8 @@ public class ToMenuButton extends Item implements Button {
 
     @Override
     public void onClick(Player player) {
-        ConfigurationSection section = MainMenuConfig.getSection("menu");
-        MenuManager.openInventory(player, new MainMenu(player, section.getString("title"),
-                (byte) (section.getInt("rows") * 9), section.getConfigurationSection("items.decorations")));
+        MenuManager.openInventory(player, new MainMenu(player,
+                MainMenuManager.getString("menu.title"), MainMenuManager.getInt("menu.rows"),
+                MainMenuManager.getSection("menu.items.decorations")));
     }
 }

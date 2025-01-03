@@ -4,9 +4,9 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.example.novasparkle.Items.Item;
+import org.novasparkle.lunaspring.Items.Item;
 
 public class UpdateItemsButton extends Item implements Button {
     public UpdateItemsButton(ConfigurationSection section) {
@@ -27,7 +27,7 @@ public class UpdateItemsButton extends Item implements Button {
         }
 
         playerData.set("raiting", raiting - neededRaiting);
-        ItemsData.updateItems(player);
+        ItemsDataManager.updateItems(player);
         player.closeInventory();
     }
 }

@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.others.Utils;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.example.novasparkle.Items.Item;
+import org.novasparkle.lunaspring.Items.Item;
 
 import java.util.List;
 

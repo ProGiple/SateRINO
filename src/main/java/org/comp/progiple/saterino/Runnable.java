@@ -2,7 +2,7 @@ package org.comp.progiple.saterino;
 
 import org.bukkit.scheduler.BukkitRunnable;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +15,7 @@ public class Runnable extends BukkitRunnable {
         String formattedTime = time.format(formatter);
 
         if (Config.getStringList("config.updateTime").contains(formattedTime)) {
-            ItemsData.updateItems(true);
+            ItemsDataManager.updateItems(true);
         }
     }
 }

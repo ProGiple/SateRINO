@@ -11,15 +11,22 @@ menu:
         slotsInt:
           - 1
     clickable:
-      OPEN_MAIN_MENU:
+      BACK:
         material: STONE_BUTTON
         amount: 1
         displayName: ''
         lore: [ ]
         slot: 1
-      LEVEL_UP:
-        material: BOOK
+      UPGRADE_LEVEL:
+        material: BELL
         amount: 1
         displayName: ''
-        lore: [ ]
-        slot: 2
+        lore:
+          - '$cost, $next_level'
+        slot: 3
+        if_max_level:
+          material: BARRIER
+          amount: 1
+          displayName: ''
+          lore:
+            - '$cost, $next_level'

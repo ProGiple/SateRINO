@@ -5,21 +5,25 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.comp.progiple.saterino.SateRINO;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.inventories.menus.main.MainMenu;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsConfig;
-import org.example.novasparkle.Items.Item;
-import org.example.novasparkle.Menus.AMenu;
-import org.example.novasparkle.Menus.MenuManager;
+import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsManager;
+import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.AMenu;
+import org.novasparkle.lunaspring.Menus.IMenu;
+import org.novasparkle.lunaspring.Menus.MenuManager;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Getter
@@ -34,7 +38,7 @@ public class SellerItem extends Item implements Button {
         this.material = material;
         this.level = level;
         this.amount = count;
-        ConfigurationSection section = SellerItemsConfig.getSection(String.format("items.%d.%s", this.level, material.name()));
+        ConfigurationSection section = SellerItemsManager.getSection(String.format("items.%d.%s", this.level, material.name()));
 
         this.fullCost = BigDecimal.valueOf(moneyPerOne * this.amount).setScale(2, RoundingMode.HALF_UP).doubleValue();
         this.fullRaiting = (this.amount / section.getInt("raiting.per")) * section.getInt("raiting.amo");
@@ -63,8 +67,10 @@ public class SellerItem extends Item implements Button {
             SateRINO.getEconomy().depositPlayer(player, this.fullCost);
 
             PlayerData playerData = PlayerData.getPlayerDataMap().get(player.getName());
-            playerData.set("raiting", this.fullRaiting);
-            MenuManager.getActiveInventories().forEach((inv, imenu) -> {
+            playerData.set("raiting", playerData.getInt("raiting") + this.fullRaiting);
+
+            Map<Inventory, IMenu> map = new HashMap<>(MenuManager.getActiveInventories());
+            map.forEach((inv, imenu) -> {
                 if (imenu instanceof MainMenu) {
                     AMenu aMenu = (AMenu) imenu;
                     aMenu.getPlayer().closeInventory();
@@ -72,15 +78,15 @@ public class SellerItem extends Item implements Button {
             });
 
             byte index = 0;
-            for (String key : ItemsData.getSection("").getKeys(false)) {
-                if (ItemsData.getString(String.format("%s.material", key)).equalsIgnoreCase(this.material.name())
-                    && ItemsData.getInt(String.format("%s.count", key)) == this.amount) {
+            for (String key : ItemsDataManager.getSection("").getKeys(false)) {
+                if (ItemsDataManager.getString(String.format("%s.material", key)).equalsIgnoreCase(this.material.name())
+                    && ItemsDataManager.getInt(String.format("%s.count", key)) == this.amount) {
                     index = Byte.parseByte(key);
                     break;
                 }
             }
             if (index != 0) {
-                ItemsData.updateItem(index, this.level, new Random());
+                ItemsDataManager.updateItem(index, this.level, new Random());
                 byte finalIndex = index;
                 Config.getMessageList("playerCompleteItem").forEach(line ->
                         Bukkit.getServer().broadcastMessage(line.replace("$player", player.getName())

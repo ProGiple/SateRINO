@@ -4,9 +4,9 @@ import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.inventories.ErrorItem;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
-import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsConfig;
-import org.example.novasparkle.Items.Item;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
+import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsManager;
+import org.novasparkle.lunaspring.Items.Item;
 
 import java.util.*;
 
@@ -14,8 +14,8 @@ import java.util.*;
 public class SellerItemsSetter {
     private final List<Item> sellerItemList = new ArrayList<>();
     public SellerItemsSetter(Map<Byte, Byte> slotToLevelMap, byte playerLevel) {
-        ConfigurationSection successfulSection = SellerItemsConfig.getSection("staticItems.successful");
-        ConfigurationSection errorSection = SellerItemsConfig.getSection("staticItems.error");
+        ConfigurationSection successfulSection = SellerItemsManager.getSection("staticItems.successful");
+        ConfigurationSection errorSection = SellerItemsManager.getSection("staticItems.error");
 
         int i = 0;
         for (Map.Entry<Byte, Byte> entry : slotToLevelMap.entrySet()) {
@@ -23,10 +23,10 @@ public class SellerItemsSetter {
             byte slot = entry.getKey();
             byte level = entry.getValue();
 
-            ConfigurationSection itemSection = ItemsData.getSection(String.valueOf(i));
+            ConfigurationSection itemSection = ItemsDataManager.getSection(String.valueOf(i));
             String id = itemSection.getString("material");
             if (id == null) continue;
-            ConfigurationSection sellerItemSection = SellerItemsConfig.getSection(String.format("items.%d.%s", level, id));
+            ConfigurationSection sellerItemSection = SellerItemsManager.getSection(String.format("items.%d.%s", level, id));
             if (sellerItemSection == null) continue;
 
             Material material = Material.getMaterial(id);

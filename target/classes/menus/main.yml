@@ -11,6 +11,12 @@ menu:
         slotsInt:
           - 1
     clickable:
+      TO_SHOP:
+        material: STONE_BUTTON
+        amount: 1
+        displayName: ''
+        lore: [ ]
+        slot: 1
       CLOSE:
         material: STONE_BUTTON
         amount: 1
@@ -24,19 +30,6 @@ menu:
         lore:
           - '$cost'
         slot: 2
-      UPGRADE_LEVEL:
-        material: BELL
-        amount: 1
-        displayName: ''
-        lore:
-          - '$cost, $next_level'
-        slot: 3
-        if_max_level:
-          material: BARRIER
-          amount: 1
-          displayName: ''
-          lore:
-            - '$cost, $next_level'
     sellerItems:
       11: 0
       12: 0

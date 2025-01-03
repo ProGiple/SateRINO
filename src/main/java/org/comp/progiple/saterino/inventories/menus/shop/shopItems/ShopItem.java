@@ -10,7 +10,7 @@ import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.others.Utils;
 import org.comp.progiple.saterino.others.configs.Config;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.example.novasparkle.Items.Item;
+import org.novasparkle.lunaspring.Items.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,15 +62,14 @@ public class ShopItem extends Item implements Button {
             }
             else {
                 this.commands.forEach(command -> {
-                    String dispatchedCommand = command
-                            .replace("player_execute:", "")
-                            .replace("console_execute:", "");
-                    if (command.equalsIgnoreCase("player_execute:")) {
-                        Bukkit.dispatchCommand(player, dispatchedCommand);
+                    if (command.startsWith("player_execute:")) {
+                        String playerCommand = command.replace("player_execute:", "");
+                        Bukkit.dispatchCommand(player, playerCommand);
                     }
 
-                    if (command.equalsIgnoreCase("console_execute:")) {
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), dispatchedCommand);
+                    if (command.startsWith("console_execute:")) {
+                        String consoleCommand = command.replace("console_execute:", "");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), consoleCommand);
                     }
                 });
             }

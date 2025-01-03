@@ -7,28 +7,26 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.ItemStack;
 import org.comp.progiple.saterino.inventories.Button;
+import org.comp.progiple.saterino.inventories.menus.shop.shopItems.ShopItem;
 import org.comp.progiple.saterino.inventories.menus.shop.shopItems.ShopItemsSetter;
 import org.comp.progiple.saterino.inventories.staticButtons.ButtonSetter;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuConfig;
-import org.example.novasparkle.Items.Item;
-import org.example.novasparkle.Menus.AMenu;
-import org.example.novasparkle.Menus.Decoration;
+import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuManager;
+import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.AMenu;
 
 public class ShopMenu extends AMenu {
-    private final Decoration decoration;
     private final ButtonSetter buttonSetter;
     private final ShopItemsSetter shopItemsSetter;
     private final Player player;
     public ShopMenu(Player player, String title, byte size, ConfigurationSection decorationSection) {
-        super(player, title, size);
+        super(player, title, size, decorationSection);
 
         this.player = player;
         PlayerData playerData = PlayerData.getPlayerDataMap().get(this.player.getName());
         byte level = (byte) playerData.getInt("level");
 
-        this.decoration = new Decoration(decorationSection);
-        this.buttonSetter = new ButtonSetter(ShopMenuConfig.getSection("menu.items.clickable"), level);
+        this.buttonSetter = new ButtonSetter(ShopMenuManager.getSection("menu.items.clickable"), level);
         this.shopItemsSetter = new ShopItemsSetter(level);
     }
 
@@ -37,10 +35,7 @@ public class ShopMenu extends AMenu {
         for (Button button : this.buttonSetter.getButtonList()) {
             this.getInventory().setItem(button.getSlot(), button.getItemStack());
         }
-        for (Item item : this.shopItemsSetter.getShopItemList()) {
-            this.getInventory().setItem(item.getSlot(), item.getItemStack());
-        }
-        this.decoration.insert(this);
+        this.shopItemsSetter.getShopItemList().forEach(item -> item.insert(this.getInventory(), item.getSlot()));
         this.insertAllItems();
     }
 

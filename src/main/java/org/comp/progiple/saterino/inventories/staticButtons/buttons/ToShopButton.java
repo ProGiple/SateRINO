@@ -4,9 +4,9 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.inventories.menus.shop.ShopMenu;
-import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuConfig;
-import org.example.novasparkle.Items.Item;
-import org.example.novasparkle.Menus.MenuManager;
+import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuManager;
+import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.MenuManager;
 
 public class ToShopButton extends Item implements Button {
     public ToShopButton(ConfigurationSection section) {
@@ -15,7 +15,7 @@ public class ToShopButton extends Item implements Button {
 
     @Override
     public void onClick(Player player) {
-        ConfigurationSection section = ShopMenuConfig.getSection("menu");
+        ConfigurationSection section = ShopMenuManager.getSection("menu");
         MenuManager.openInventory(player, new ShopMenu(player, section.getString("title"),
                 (byte) (section.getInt("rows") * 9), section.getConfigurationSection("items.decorations")));
     }

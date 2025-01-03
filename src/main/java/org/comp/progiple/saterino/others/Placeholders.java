@@ -4,7 +4,7 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.others.configs.Config;
-import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsData;
+import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 import org.jetbrains.annotations.NotNull;
 
@@ -72,7 +72,7 @@ public class Placeholders extends PlaceholderExpansion {
         }
         if (params.contains("item")) {
             String[] splited = params.split("_");
-            ConfigurationSection section = ItemsData.getSection(splited[1]);
+            ConfigurationSection section = ItemsDataManager.getSection(splited[1]);
             switch (splited[2]) {
                 case "material" -> {
                     return section.getString("material");
