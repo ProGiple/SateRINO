@@ -14,7 +14,7 @@ import org.comp.progiple.saterino.others.configs.Config;
 import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsManager;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 import org.novasparkle.lunaspring.Menus.AMenu;
 import org.novasparkle.lunaspring.Menus.IMenu;
 import org.novasparkle.lunaspring.Menus.MenuManager;

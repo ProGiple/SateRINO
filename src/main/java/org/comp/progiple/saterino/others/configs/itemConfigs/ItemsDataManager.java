@@ -46,7 +46,7 @@ public class ItemsDataManager {
     }
 
     public boolean updateItem(byte index, byte level, Random random) {
-        ConfigurationSection levelItemsSection = SellerItemsManager.getSection(String.format("items.%d", (int) level));
+        ConfigurationSection levelItemsSection = SellerItemsManager.getSection(String.format("items.%s", String.valueOf(level)));
         if (levelItemsSection == null) return false;
 
         List<String> levelItems = new ArrayList<>(levelItemsSection.getKeys(false));

@@ -5,12 +5,12 @@ import org.bukkit.entity.Player;
 import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.inventories.menus.shop.ShopMenu;
 import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuManager;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 import org.novasparkle.lunaspring.Menus.MenuManager;
 
 public class ToShopButton extends Item implements Button {
     public ToShopButton(ConfigurationSection section) {
-        super(section);
+        super(section, section.getInt("slot"));
     }
 
     @Override

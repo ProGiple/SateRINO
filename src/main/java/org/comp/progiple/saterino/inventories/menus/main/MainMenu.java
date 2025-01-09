@@ -11,10 +11,11 @@ import org.comp.progiple.saterino.inventories.menus.main.sellerItems.SellerItems
 import org.comp.progiple.saterino.inventories.staticButtons.ButtonSetter;
 import org.comp.progiple.saterino.others.configs.menuConfigs.MainMenuManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 import org.novasparkle.lunaspring.Menus.AMenu;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -30,7 +31,7 @@ public class MainMenu extends AMenu {
         this.buttonSetter = new ButtonSetter(Objects.requireNonNull(section.getConfigurationSection("clickable")),
                 (byte) PlayerData.getPlayerDataMap().get(this.player.getName()).getInt("level"));
 
-        Map<Byte, Byte> byteByteMap = new HashMap<>();
+        LinkedHashMap<Byte, Byte> byteByteMap = new LinkedHashMap<>();
         ConfigurationSection sellerItemsSection = Objects.requireNonNull(section.getConfigurationSection("sellerItems"));
         for (String key : sellerItemsSection.getKeys(false)) {
             byteByteMap.put(Byte.parseByte(key), (byte) sellerItemsSection.getInt(key));

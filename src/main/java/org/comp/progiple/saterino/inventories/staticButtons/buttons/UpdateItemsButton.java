@@ -6,11 +6,11 @@ import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.others.configs.Config;
 import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 
 public class UpdateItemsButton extends Item implements Button {
     public UpdateItemsButton(ConfigurationSection section) {
-        super(section);
+        super(section, section.getInt("slot"));
         this.getLore().replaceAll(line -> line.replace("$cost", String.valueOf(Config.getInt("config.updateItemsCost"))));
         this.setLore(this.getLore());
     }

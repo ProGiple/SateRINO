@@ -10,7 +10,7 @@ import org.comp.progiple.saterino.inventories.Button;
 import org.comp.progiple.saterino.others.Utils;
 import org.comp.progiple.saterino.others.configs.Config;
 import org.comp.progiple.saterino.others.configs.PlayerData;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

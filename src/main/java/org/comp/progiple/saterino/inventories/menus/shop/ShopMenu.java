@@ -12,7 +12,7 @@ import org.comp.progiple.saterino.inventories.menus.shop.shopItems.ShopItemsSett
 import org.comp.progiple.saterino.inventories.staticButtons.ButtonSetter;
 import org.comp.progiple.saterino.others.configs.PlayerData;
 import org.comp.progiple.saterino.others.configs.menuConfigs.ShopMenuManager;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 import org.novasparkle.lunaspring.Menus.AMenu;
 
 public class ShopMenu extends AMenu {

@@ -5,7 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.inventories.ErrorItem;
 import org.comp.progiple.saterino.others.configs.itemConfigs.ShopItemsManager;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,7 @@ menu:
         amount: 1
         displayName: ''
         lore: []
-        slotsInt:
+        slots:
           - 1
     clickable:
       BACK:

@@ -1,5 +1,5 @@
 name: SateRINO
-version: '1.0.3'
+version: '1.0.4D'
 main: org.comp.progiple.saterino.SateRINO
 api-version: '1.16'
 softdepend:

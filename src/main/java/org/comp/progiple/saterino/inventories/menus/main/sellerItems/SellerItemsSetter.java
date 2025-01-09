@@ -6,14 +6,14 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.comp.progiple.saterino.inventories.ErrorItem;
 import org.comp.progiple.saterino.others.configs.itemConfigs.ItemsDataManager;
 import org.comp.progiple.saterino.others.configs.itemConfigs.SellerItemsManager;
-import org.novasparkle.lunaspring.Items.Item;
+import org.novasparkle.lunaspring.Menus.Items.Item;
 
 import java.util.*;
 
 @Getter
 public class SellerItemsSetter {
     private final List<Item> sellerItemList = new ArrayList<>();
-    public SellerItemsSetter(Map<Byte, Byte> slotToLevelMap, byte playerLevel) {
+    public SellerItemsSetter(LinkedHashMap<Byte, Byte> slotToLevelMap, byte playerLevel) {
         ConfigurationSection successfulSection = SellerItemsManager.getSection("staticItems.successful");
         ConfigurationSection errorSection = SellerItemsManager.getSection("staticItems.error");
 
@@ -22,11 +22,15 @@ public class SellerItemsSetter {
             i++;
             byte slot = entry.getKey();
             byte level = entry.getValue();
+            System.out.println(i);
+            System.out.println(slot);
+            System.out.println(level);
 
             ConfigurationSection itemSection = ItemsDataManager.getSection(String.valueOf(i));
+            System.out.println(itemSection);
             String id = itemSection.getString("material");
             if (id == null) continue;
-            ConfigurationSection sellerItemSection = SellerItemsManager.getSection(String.format("items.%d.%s", level, id));
+            ConfigurationSection sellerItemSection = SellerItemsManager.getSection(String.format("items.%s.%s", String.valueOf(level), id));
             if (sellerItemSection == null) continue;
 
             Material material = Material.getMaterial(id);
