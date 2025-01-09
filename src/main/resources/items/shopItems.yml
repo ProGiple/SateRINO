@@ -1,33 +1,35 @@
 noLevel_error_item:
   material: BARRIER
-  displayName: ''
+  displayName: '&x&2&A&8&8&F&8 Заблокировано!'
   lore:
-    - '$need_level'
+    - ' '
+    - '&f Вам необходим &x&2&A&8&8&F&8$need_level уровень&f для'
+    - '&f Покупки данного &x&2&A&8&8&F&8товара!'
+    - ''
 shopItems:
-  first132132:
+  first1:
     displayMaterial: PAPER
-    displayName: ""
-    displayLore:
-      - ""
-    displayAmount: 16
-    needLevel: 3
-    slot: 1
-    raitingCost: 50
+    displayName: "&x&2&A&8&8&F&8 Покупка команды"
+    displayLore: []
+    displayAmount: 1
+    needLevel: 1
+    slot: 22
+    raitingCost: 10
     mode:
-      type: COMMANDS # COMMANDS / ITEM
+      type: COMMAND # COMMAND / ITEM
       commands:
-        - "player_execute:ei give $player treasure 1"
-        - "console_execute:ei give $player treasure 1"
-  second_1:
+        - "player_execute:test"
+        - "console_execute:sj add ProGiple 1111"
+  second2:
     displayMaterial: STONE
-    displayName: ""
+    displayName: "&x&2&A&8&8&F&8 Покупка предмета"
     displayLore:
-      - ""
-    displayAmount: 12
-    needLevel: 2
-    slot: 2
-    raitingCost: 111
+      - "Тестовое описание!"
+    displayAmount: 3
+    needLevel: 0
+    slot: 31
+    raitingCost: 32
     mode:
       type: ITEM
       item: NETHERITE_SCRAP
-      amount: 12
+      amount: 2

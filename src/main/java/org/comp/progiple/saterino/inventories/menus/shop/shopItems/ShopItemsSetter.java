@@ -23,7 +23,7 @@ public class ShopItemsSetter {
             if (needLevel > playerLevel) {
                 String name = errorSection.getString("displayName");
                 assert name != null;
-                if (!name.isEmpty()) name = itemSection.getString("displayName");
+                if (name.isEmpty()) name = itemSection.getString("displayName");
 
                 String stringMaterial = errorSection.getString("material");
                 Material material = stringMaterial == null ? Material.getMaterial(Objects.requireNonNull(itemSection.getString("displayMaterial"))) : Material.getMaterial(stringMaterial);

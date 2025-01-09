@@ -4,7 +4,7 @@
   <groupId>org.comp.progiple</groupId>
   <artifactId>SateRINO</artifactId>
   <name>SateRINO</name>
-  <version>1.0.4D</version>
+  <version>1.0.5F</version>
   <build>
     <resources>
       <resource>

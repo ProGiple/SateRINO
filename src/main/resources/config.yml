@@ -1,5 +1,6 @@
 config:
   updateItemsCost: 50
+  maxLevel: 1
   levelBuying:
     1: 75
     2: 200
@@ -15,6 +16,7 @@ messages:
   noLevel: "У вас не тот уровень! Нужен минимум $need_level" # $need_level
   noItems: "У вас не хватает предметов! Надо $need_items шт." # $need_items
   maxLevel: "У вас и так уже максимальный уровень!"
+  upgradeLevel: "Вы успешно прокачали свой уровень до $newLevel!"
   noRaiting: "У вас не хватает рейтинга! Нужно еще $need_raiting шт." # $need_raiting
   reloadPlugin: "&aПлагин перезагружен!"
   buyItem: "Вы успешно купили товар!"

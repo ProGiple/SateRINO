@@ -4,32 +4,51 @@ menu:
   items:
     decorations:
       1:
-        material: GLASS
+        material: GRAY_STAINED_GLASS_PANE
         amount: 1
-        displayName: ''
+        displayName: '&8Разделитель'
         lore: []
         slots:
-          - 1
+          - 0-8
+          - 45-53
     clickable:
       TO_SHOP:
-        material: STONE_BUTTON
+        material: END_PORTAL_FRAME
         amount: 1
-        displayName: ''
-        lore: [ ]
-        slot: 1
+        displayName: '&x&2&A&8&8&F&8 Открыть магазин'
+        lore:
+          - " "
+          - "&f Нажмите чтобы открыть магазин"
+          - " "
+          - "&f В магазине за &x&2&A&8&8&F&8рейтинг &fвы"
+          - "&f Можете купить товары, потратив немного"
+          - "&x&2&A&8&8&F&8 Рейтинга&f, или повысить уровень"
+          - " "
+        slot: 3
       CLOSE:
         material: STONE_BUTTON
         amount: 1
-        displayName: ''
+        displayName: '&x&2&A&8&8&F&8 Выйти'
         lore: [ ]
-        slot: 1
+        slot: 49
       UPDATE_ITEMS:
         material: LIGHT_BLUE_DYE
         amount: 1
-        displayName: ''
+        displayName: '&x&2&A&8&8&F&8 Обновить предметы'
         lore:
-          - '$cost'
-        slot: 2
+          - ''
+          - '&f Нажмите чтобы обновить'
+          - ''
+          - '&f Если вам &x&2&A&8&8&F&8не подходят&f предметы'
+          - '&f Из предложенных, то вы можете'
+          - '&f Их принудительно &x&2&A&8&8&F&8обновить&f за'
+          - '&f &x&2&A&8&8&F&8$cost рейтинга&f поручений &x&2&A&8&8&F&8РИНО'
+          - ''
+        slot: 5
     sellerItems:
-      11: 0
-      12: 0
+      21: 0
+      22: 0
+      23: 0
+      30: 1
+      31: 1
+      32: 1

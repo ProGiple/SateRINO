@@ -4,29 +4,37 @@ menu:
   items:
     decorations:
       1:
-        material: GLASS
+        material: GRAY_STAINED_GLASS_PANE
         amount: 1
-        displayName: ''
-        lore: []
+        displayName: '&8Разделитель'
+        lore: [ ]
         slots:
-          - 1
+          - 0-8
+          - 45-53
     clickable:
       BACK:
         material: STONE_BUTTON
         amount: 1
-        displayName: ''
+        displayName: '&x&2&A&8&8&F&8 Обратно'
         lore: [ ]
-        slot: 1
+        slot: 49
       UPGRADE_LEVEL:
         material: BELL
         amount: 1
-        displayName: ''
+        displayName: '&x&2&A&8&8&F&8 Прокачать уровень'
         lore:
-          - '$cost, $next_level'
-        slot: 3
+          - ' '
+          - '&f Нажмите чтобы прокачать свой'
+          - '&f Уровень до &x&2&A&8&8&F&8$next_level &fвсего'
+          - '&f За &x&2&A&8&8&F&8$cost рейтинга Р.И.Н.О.!'
+          - ''
+        slot: 4
         if_max_level:
           material: BARRIER
           amount: 1
-          displayName: ''
+          displayName: '&x&2&A&8&8&F&8 Заблокировано'
           lore:
-            - '$cost, $next_level'
+            - ' '
+            - '&f У вас и так &x&2&A&8&8&F&8максимальный уровень!'
+            - '&f Больше нельзя прокачиваться!'
+            - ' '

@@ -42,5 +42,8 @@ public class UpgradeLevelButton extends Item implements Button {
         playerData.set("level", level + 1);
         playerData.set("raiting", raiting - neededRaiting);
         player.closeInventory();
+        player.sendMessage(Config.getMessage("upgradeLevel")
+                .replace("$newLevel", String.valueOf(level + 1))
+                .replace("$level", String.valueOf(level)));
     }
 }
